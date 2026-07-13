@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ClinTrialAI - AI-enabled clinical trial execution platform. Reimagining clinical trials with advanced technology.">
+    <meta name="keywords" content="clinical trials, AI, healthcare, drug development, patient recruitment">
+    <meta property="og:title" content="ClinTrialAI - Reimagining Clinical Trials with AI">
+    <meta property="og:image" content="assets/images/clintrialai-logo.png">
+    
+    <title>ClinTrialAI - Reimagining Clinical Trials with AI</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+
+    <style>
+        :root{
+            --primary:#0A2E73;
+            --accent:#00A86B;
+            --text:#233142;
+            --muted:#64748b;
+        }
+        
+        html{
+            scroll-behavior:smooth;
+        }
+        
+        body{
+            font-family:'Inter', sans-serif;
+            color:var(--text);
+            line-height:1.7;
+            overflow-x:hidden;
+            background:#fff;
+        }
+        
+        h1,h2,h3,h4,h5,h6{
+            font-family:'Poppins', sans-serif;
+            color:var(--primary);
+            line-height:1.2;
+        }
+        
+        img{
+            max-width:100%;
+            height:auto;
+            display:block;
+        }
+        
+        section{
+            position:relative;
+        }
+        
+        .py-100{
+            padding-top:5rem !important;
+            padding-bottom:5rem !important;
+        }
+        
+        .mb-80{
+            margin-bottom:4rem !important;
+        }
+        
+        .fw-700{
+            font-weight:700 !important;
+        }
+        
+        .fw-800{
+            font-weight:800 !important;
+        }
+        
+        .section-heading{
+            max-width:760px;
+            margin-left:auto;
+            margin-right:auto;
+            margin-bottom:3rem;
+        }
+        
+        .section-heading h2{
+            font-size:clamp(1.8rem, 3vw, 2.5rem);
+            margin-bottom:.75rem;
+        }
+        
+        .section-heading p{
+            font-size:1.05rem;
+            color:var(--muted);
+        }
+        
+        .section-heading::after{
+            content:"";
+            display:block;
+            width:84px;
+            height:4px;
+            border-radius:999px;
+            margin:1rem auto 0;
+            background:linear-gradient(90deg, var(--accent), #2dd4bf);
+        }
+        
+        .hero-section{
+            position:relative;
+            min-height:620px;
+            padding:6rem 0;
+            display:flex;
+            align-items:center;
+            background-size:cover;
+            background-position:center;
+        }
+        
+        .hero-section::before{
+            content:"";
+            position:absolute;
+            inset:0;
+            background:linear-gradient(90deg, rgba(4,19,43,.84), rgba(10,46,115,.38));
+            z-index:0;
+        }
+        
+        .hero-section > .container-lg{
+            position:relative;
+            z-index:2;
+        }
+        
+        .hero-section h1{
+            font-size:clamp(2.4rem, 4.5vw, 4.4rem);
+            letter-spacing:-0.02em;
+        }
+        
+        .hero-section .lead{
+            font-size:1.08rem;
+            max-width:520px;
+        }
+        
+        .screenshot-container{
+            position:relative;
+            padding:1rem;
+            background:rgba(255,255,255,.16);
+            border-radius:24px;
+            backdrop-filter:blur(16px);
+            border:1px solid rgba(255,255,255,.24);
+            box-shadow:0 25px 70px rgba(0,0,0,.22);
+        }
+        
+        .screenshot-container img{
+            border-radius:18px;
+            border:1px solid rgba(255,255,255,.16);
+        }
+        
+        .glass-morphism{
+            background:rgba(255,255,255,.92);
+            backdrop-filter:blur(12px);
+            -webkit-backdrop-filter:blur(12px);
+            border:1px solid rgba(255,255,255,.8);
+            box-shadow:0 12px 40px rgba(15,23,42,.08);
+            border-radius:1.25rem;
+        }
+        
+        .platform-image img{
+            max-width:220px;
+            margin:0 auto;
+        }
+        
+        .capability-card,
+        .advantage-card,
+        .opportunity-card,
+        .market-stat,
+        .revenue-box,
+        .value-box,
+        .timeline-card,
+        .market-strategy{
+            height:100%;
+            transition:transform .25s ease, box-shadow .25s ease;
+        }
+        
+        .capability-card:hover,
+        .advantage-card:hover,
+        .opportunity-card:hover,
+        .market-stat:hover,
+        .revenue-box:hover,
+        .value-box:hover,
+        .timeline-card:hover,
+        .market-strategy:hover{
+            transform:translateY(-6px);
+            box-shadow:0 20px 45px rgba(15,23,42,.12);
+        }
+
+      /* Value proposition cards */
+      .value-section .value-box{
+           background:#fff;
+           border:1px solid rgba(15,23,42,.08);
+           border-radius:1.5rem;
+           padding:2rem;
+           box-shadow:0 22px 60px rgba(15,23,42,.08);
+           transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+       }
+
+       .value-section .value-box:hover{
+           transform:translateY(-6px);
+           box-shadow:0 28px 70px rgba(15,23,42,.12);
+       }
+
+       .value-section .value-box h4{
+           font-size:1.45rem;
+       }
+
+       .value-section .value-box .improvement-item,
+       .value-section .value-box .saving-item{
+           margin-bottom:1.5rem;
+           padding-bottom:1.5rem;
+           border-bottom:1px solid rgba(15,23,42,.08);
+       }
+
+       .value-section .value-box .improvement-item:last-child,
+       .value-section .value-box .saving-item:last-child{
+           margin-bottom:0;
+           padding-bottom:0;
+           border-bottom:0;
+       }
+
+       .value-section .metric-badge{
+           min-width:64px;
+           min-height:64px;
+           font-size:1rem;
+           line-height:1.1;
+       }
+
+       .value-section .saving-item h5{
+           margin-bottom:.5rem;
+           font-size:1.1rem;
+       }
+        
+        .scroll-progress{
+            position:fixed;
+            top:0;
+            left:0;
+            height:4px;
+            width:0;
+            background:linear-gradient(90deg, var(--accent), #2dd4bf);
+            z-index:1100;
+        }
+        
+        .back-to-top{
+            position:fixed;
+            right:1.25rem;
+            bottom:1.25rem;
+            z-index:1050;
+            width:48px;
+            height:48px;
+            border:none;
+            border-radius:50%;
+            background:var(--accent);
+            color:#fff;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            box-shadow:0 12px 24px rgba(0,0,0,.2);
+            opacity:0;
+            visibility:hidden;
+            transform:translateY(16px);
+            transition:all .3s ease;
+        }
+        
+        .back-to-top.show{
+            opacity:1;
+            visibility:visible;
+            transform:translateY(0);
+        }
+        
+        .navbar-nav .nav-link{
+            font-weight:600;
+            color:var(--primary);
+        }
+        
+        .navbar-nav .nav-link:hover{
+            color:var(--accent);
+        }
+        
+        .cta-section{
+            background:linear-gradient(135deg,#0A2E73 0%,#1b4dbb 50%,#00A86B 100%);
+        }
+        
+        .footer-section a:hover{
+            color:#fff !important;
+        }
+        
+        .footer-section .footer-logo{
+            display:flex;
+            align-items:center;
+            gap:.75rem;
+            margin-bottom:.75rem;
+        }
+
+        .footer-menu h6{
+            text-align:center;
+        }
+
+        .footer-menu .footer-links{
+            margin:0 auto;
+            max-width:340px;
+            columns:2;
+            column-gap:2rem;
+            padding:0;
+            margin:0;
+            list-style:none;
+        }
+
+        .footer-menu .footer-links li{
+            margin-bottom:.85rem;
+        }
+
+        @media (max-width:767.98px){
+            .footer-menu .footer-links{
+                columns:1;
+            }
+        }
+        
+        @media (max-width:991.98px){
+            .hero-section{
+                min-height:auto;
+                padding:5rem 0 4rem;
+            }
+            
+            .hero-section .lead{
+                max-width:none;
+            }
+        }
+          /* Statistics cards: ensure icon / heading / number are centered and spaced consistently */
+    .statistics-section .glass-morphism{
+        min-height:260px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        padding:2.5rem !important;
+    }
+    
+    .statistics-section .stat-icon{
+        margin-bottom:1rem;
+        color:var(--accent);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    
+    .statistics-section .stat-icon svg{
+        width:60px;
+        height:60px;
+    }
+    
+    .statistics-section h5{
+        margin:.25rem 0 .35rem;
+        font-size:1.125rem;
+        color:var(--primary);
+        line-height:1.1;
+    }
+    
+    .statistics-section h3{
+        margin:.15rem 0 .6rem;
+        font-size:2.25rem;
+        line-height:1;
+        color:var(--primary);
+    }
+    
+    .statistics-section p{
+        margin:0;
+        color:var(--muted);
+    }
+    
+    @media (max-width:767.98px){
+        .statistics-section .glass-morphism{ min-height:220px; padding:1.4rem !important; }
+        .statistics-section h3{ font-size:1.85rem; }
+    }
+    /* Logo / platform image tweaks */
+    .navbar-logo{ height:48px; width:auto; object-fit:contain; display:inline-block; }
+    .platform-logo{ max-width:280px; height:auto; display:block; margin:0 auto; object-fit:contain; }
+    .platform-image{ display:flex; align-items:center; justify-content:center; }
+    </style>
+  
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-white shadow-sm">
+        <div class="container-lg">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <!-- add high-res and fallback logo files to assets/images (clintrialai-logo.png / clintrialai-logo@2x.png) -->
+                <img src="assets/images/clintrialai-logo.png" alt="ClinTrialAI" class="navbar-logo me-2">
+                <span class="fw-700" style="color: #0A2E73;">ClinTrial<span style="color: #00A86B;">AI</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/platform.html">Platform</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/solutions.html">Solutions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/leadership.html">Leadership</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Background Image -->
+    <section class="hero-section py-100" style="background-image: url('./assets/images/heroes/hero-home.png'); min-height: 600px;">
+        <div class="container-lg position-relative z-3">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="display-3 fw-800 mb-4 text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                        Reimagining<br>Clinical Trials
+                    </h1>
+                    <p class="lead text-white mb-5" style="max-width: 500px; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">
+                        AI-powered end-to-end clinical trial execution platform transforming patient recruitment, enrollment, and retention.
+                    </p>
+                    <!-- <div class="d-flex gap-3 flex-wrap">
+                        <a href="pages/platform.html" class="btn btn-light btn-lg fw-600 px-5">Explore Platform</a>
+                        <a href="pages/contact.html" class="btn btn-outline-light btn-lg fw-600 px-5">Contact Us</a>
+                    </div> -->
+                </div>
+                <div class="col-lg-6">
+                    <div class="screenshot-container">
+                        <img 
+                            src="./assets/images/dashboard-preview.png" 
+                            alt="ClinTrialAI Platform Dashboard" 
+                            class="screenshot img-fluid rounded-lg shadow-lg"
+                            loading="lazy"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section with Icons -->
+    <section class="statistics-section py-100 bg-light">
+        <div class="container-lg">
+            <div class="text-center mb-80">
+                <h2 class="display-5 fw-800 mb-4" style="color: #0A2E73;">The Challenge is Real</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="glass-morphism text-center p-5">
+                        <!-- <div class="stat-icon mb-4">
+                            <svg width="60" height="60" viewBox="0 0 60 60" class="icon-svg">
+                                <circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M30 15v30M15 30h30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div> -->
+                        <h5 class="fw-700 mb-2" style="color: #0A2E73;">Enrollment shortfalls</h5>
+                        <h3 class="display-6 fw-800 mb-2 counter" data-target="80">0</h3>
+                        <p class="text-muted fw-600">% of trials miss enrollment targets</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="glass-morphism text-center p-5">
+                        <!-- <div class="stat-icon mb-4">
+                            <svg width="60" height="60" viewBox="0 0 60 60" class="icon-svg">
+                                <path d="M20 40L30 25L40 35L50 20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <rect x="10" y="10" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div> -->
+                        <h5 class="fw-700 mb-2" style="color: #0A2E73;">Market size</h5>
+                        <h3 class="display-6 fw-800 mb-2">$85<span style="font-size: 0.5em;">B</span></h3>
+                        <p class="text-muted fw-600">Global clinical trial market opportunity</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="glass-morphism text-center p-5">
+                        <!-- <div class="stat-icon mb-4">
+                            <svg width="60" height="60" viewBox="0 0 60 60" class="icon-svg">
+                                <circle cx="30" cy="30" r="20" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M30 15v15h15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div> -->
+                        <h5 class="fw-700 mb-2" style="color: #0A2E73;">Time to ID patients</h5>
+                        <h3 class="display-6 fw-800 mb-2 counter" data-target="4">0</h3>
+                        <p class="text-muted fw-600">-6 months for patient identification</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition with Images -->
+    <section class="py-100">
+        <div class="container-lg">
+            <div class="text-center mb-80">
+                <h2 class="display-5 fw-800 mb-4" style="color: #0A2E73;">The ClinTrialAI Solution</h2>
+            </div>
+
+            <div class="row align-items-center g-5 mb-100">
+                <div class="col-lg-6">
+                    <picture>
+                        <img 
+                            src="./assets/images/features/patient-identification.png" 
+                            alt="AI Patient Identification" 
+                            class="img-fluid rounded-lg shadow-lg"
+                            loading="lazy"
+                        >
+                    </picture>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="display-5 fw-800 mb-4" style="color: #0A2E73;">AI Patient Identification</h3>
+                    <p class="lead text-muted mb-4">
+                        Real-time identification of eligible patients across entire EHR datasets. Continuous screening accelerates recruitment from months to hours.
+                    </p>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-3"><strong style="color: #0A2E73;">✓ Multi-dimensional screening</strong> - Complex eligibility criteria evaluated automatically</li>
+                        <li class="mb-3"><strong style="color: #0A2E73;">✓ Cross-institutional discovery</strong> - Find eligible patients across health systems</li>
+                        <li class="mb-3"><strong style="color: #0A2E73;">✓ Structured & unstructured data</strong> - Labs, imaging, notes, all analyzed</li>
+                        <li><strong style="color: #0A2E73;">✓ Continuous monitoring</strong> - New eligible patients identified daily</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row align-items-center g-5 mb-100">
+                <div class="col-lg-6 order-lg-2">
+                    <picture>
+                        <img 
+                            src="./assets/images/features/retention-index.png" 
+                            alt="AI Retention Index" 
+                            class="img-fluid rounded-lg shadow-lg"
+                            loading="lazy"
+                        >
+                    </picture>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <h3 class="display-5 fw-800 mb-4" style="color: #0A2E73;">AI Retention Index™</h3>
+                    <p class="lead text-muted mb-4">
+                        Predictive dropout risk assessment with real-time adherence monitoring. Proactive interventions reduce patient attrition.
+                    </p>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-3"><strong style="color: #0A2E73;">✓ Dropout prediction</strong> - Identify at-risk patients early</li>
+                        <li class="mb-3"><strong style="color: #0A2E73;">✓ Adherence tracking</strong> - Real-time monitoring of protocol compliance</li>
+                        <li class="mb-3"><strong style="color: #0A2E73;">✓ Engagement strategies</strong> - Personalized interventions per patient</li>
+                        <li><strong style="color: #0A2E73;">✓ Market differentiator</strong> - Unique capability vs competitors</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <picture>
+                        <img 
+                            src="./assets/images/features/ehr-integration.png" 
+                            alt="EHR Integration" 
+                            class="img-fluid rounded-lg shadow-lg"
+                            loading="lazy"
+                        >
+                    </picture>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="display-5 fw-800 mb-4" style="color: #0A2E73;">Seamless EHR Integration</h3>
+                    <p class="lead text-muted mb-4">
+                        Native integration with Epic and Cerner. Operates independently while accessing all patient data you need.
+                    </p>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-3"><strong style="color: #0A2E73;">✓ Epic & Cerner compatible</strong> - 60% of US EHR market</li>
+                        <li class="mb-3"><strong style="color: #0A2E73;">✓ HL7/FHIR standards</strong> - Modern healthcare data exchange</li>
+                        <li class="mb-3"><strong style="color: #0A2E73;">✓ HIPAA compliant</strong> - End-to-end encryption, SOC 2 certified</li>
+                        <li><strong style="color: #0A2E73;">✓ Real-time sync</strong> - Always current patient data</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section with Images -->
+    <section class="py-100 bg-light">
+        <div class="container-lg">
+            <div class="text-center mb-80">
+                <h2 class="display-5 fw-800 mb-4" style="color: #0A2E73;">Trial Lifecycle Acceleration</h2>
+                <p class="lead text-muted">From recruitment to closeout, dramatically faster execution</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="timeline-card glass-morphism">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="timeline-icon" style="width: 60px; height: 60px; background: #00A86B; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin-right: 1rem;">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-700 mb-0" style="color: #0A2E73;">Before ClinTrialAI</h4>
+                                <p class="text-muted small mb-0">Traditional Process</p>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled text-muted text-sm">
+                            <li class="mb-3">
+                                <strong class="fw-700 text-success">✓ Patient ID:</strong> 4-6 months manual chart review
+                            </li>
+                            <li class="mb-3">
+                                <strong class="fw-700 text-success">✓ Screening:</strong> Coordinator-driven, 20% error rate
+                            </li>
+                            <li class="mb-3">
+                                <strong class="fw-700 text-success">✓ Enrollment:</strong> Sites struggle to meet targets
+                            </li>
+                            <li class="mb-3">
+                                <strong class="fw-700 text-success">✓ Dropout:</strong> 25-30% attrition rates post-randomization
+                            </li>
+                            <li>
+                                <strong class="fw-700 text-success">✓ Timeline:</strong> Typical 18-24 month delays
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="timeline-card glass-morphism" style="border-left: 4px solid #00A86B;">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="timeline-icon" style="width: 60px; height: 60px; background: #00A86B; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin-right: 1rem;">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-700 mb-0" style="color: #0A2E73;">With ClinTrialAI</h4>
+                                <p class="text-muted small mb-0">AI-Powered Transformation</p>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled text-muted text-sm">
+                            <li class="mb-3">
+                                <strong style="color: #00A86B;">✓ Patient ID:</strong> Real-time identification in hours
+                            </li>
+                            <li class="mb-3">
+                                <strong style="color: #00A86B;">✓ Screening:</strong> Automated, 99% accuracy
+                            </li>
+                            <li class="mb-3">
+                                <strong style="color: #00A86B;">✓ Enrollment:</strong> 40-60% acceleration
+                            </li>
+                            <li class="mb-3">
+                                <strong style="color: #00A86B;">✓ Retention:</strong> AI Retention Index reduces dropout
+                            </li>
+                            <li>
+                                <strong style="color: #00A86B;">✓ Timeline:</strong> Predictable, accelerated execution
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is ClinTrialAI -->
+    <section class="platform-intro py-100">
+        <div class="container-lg">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="platform-image">
+                        <!-- use full horizontal logo for the platform intro -->
+                        <picture>
+                            <source srcset="assets/images/clintrialai-full.webp" type="image/webp">
+                            <img src="assets/images/clintrialai-full.png" alt="ClinTrialAI Platform" class="platform-logo">
+                        </picture>
+                    </div>
+                </div>
+                <div class="col-lg-7 ps-lg-5">
+                    <h2 class="display-5 fw-800 mb-4" style="color: #0A2E73;">What is ClinTrialAI?</h2>
+                    <p class="lead text-muted mb-4">
+                        An end-to-end, AI-enabled clinical trial execution platform that integrates with EHRs while operating independently of them.
+                    </p>
+
+                    <div class="features-list">
+                        <div class="feature-item mb-4">
+                            <h5 class="fw-700 mb-2"><i class="fas fa-brain me-2" style="color: #00A86B;"></i>Recruit</h5>
+                            <p class="text-muted ms-4">Continuous real-time pre-screening and identification of eligible patients using complex, multi-dimensional criteria</p>
+                        </div>
+
+                        <div class="feature-item mb-4">
+                            <h5 class="fw-700 mb-2"><i class="fas fa-search me-2" style="color: #00A86B;"></i>Screen</h5>
+                            <p class="text-muted ms-4">Automated eligibility verification across EHR data — labs, imaging, medications, and other unstructured data</p>
+                        </div>
+
+                        <div class="feature-item mb-4">
+                            <h5 class="fw-700 mb-2"><i class="fas fa-dice me-2" style="color: #00A86B;"></i>Randomize</h5>
+                            <p class="text-muted ms-4">Built-in protocol-driven randomization with full audit trail and compliance</p>
+                        </div>
+
+                        <div class="feature-item mb-4">
+                            <h5 class="fw-700 mb-2"><i class="fas fa-heartbeat me-2" style="color: #00A86B;"></i>Follow-Up</h5>
+                            <p class="text-muted ms-4">Longitudinal monitoring, automated scheduling, enhanced adherence, real-time data capture and automated uploading of CRFs</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <h5 class="fw-700 mb-2"><i class="fas fa-flag-checkered me-2" style="color: #00A86B;"></i>Close</h5>
+                            <p class="text-muted ms-4">Streamlined data lock, regulatory submission, and trial close-out reporting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Capabilities -->
+    <section class="capabilities-section py-100 bg-light">
+        <div class="container-lg">
+            <div class="text-center mb-80">
+                <h2 class="display-5 fw-800 mb-4" style="color: #0A2E73;">Platform Capabilities</h2>
+                <p class="lead text-muted">Powerful features designed for clinical trial success</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="capability-card glass-morphism">
+                        <div class="capability-icon mb-4">
+                             <i class="fas fa-microchip-ai"></i>
+                             <i class="fas fa-microchip"></i>
+                        </div>
+                        <h4 class="fw-700 mb-3">AI Patient Identification</h4>
+                        <p class="text-muted">Multi-dimensional real-time eligibility screening across EHR data — labs, imaging, medications and from other unstructured data including outpatient records and hospitalizations</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="capability-card glass-morphism">
+                        <div class="capability-icon mb-4">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 class="fw-700 mb-3">Automated Recruitment</h4>
+                        <p class="text-muted">Reduces reliance on manual coordinator labor, accelerating enrollment at scale. Identifies qualified patients and initiates recruitment automatically</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="capability-card glass-morphism">
+                        <div class="capability-icon mb-4">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h4 class="fw-700 mb-3">Operational Intelligence</h4>
+                        <p class="text-muted">Real-time visibility into site performance, enrollment rates, and trial health. Actionable dashboards for trial management teams</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="capability-card glass-morphism">
+                        <div class="capability-icon mb-4">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h4 class="fw-700 mb-3">Unified Trial Workflow</h4>
+                        <p class="text-muted">Screening, consent, randomization, follow-up, and reporting in one connected platform. Eliminates handoff gaps and ensures audit compliance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="value-section py-100">
+        <div class="container-lg">
+            <div class="text-center mb-80">
+                <h2 class="display-5 fw-800 mb-4" style="color: #0A2E73;">The Value Proposition</h2>
+                <p class="lead text-muted">A fundamental reset of trial economics</p>
+            </div>
+
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="value-box">
+                        <h4 class="fw-700 mb-4" style="color: #0A2E73;">Key Improvements</h4>
+
+                        <div class="improvement-item mb-4 pb-4 border-bottom">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="metric-badge">1:7-8</div>
+                                <h5 class="mb-0 ms-3 fw-700">Improved Coordinator to Trials Ratio</h5>
+                            </div>
+                            <p class="text-muted ms-5">Up from 1:5 — AI handles the scale efficiently</p>
+                        </div>
+
+                        <div class="improvement-item mb-4 pb-4 border-bottom">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="metric-badge">Hours</div>
+                                <h5 class="mb-0 ms-3 fw-700">Improved Recruitment Speed</h5>
+                            </div>
+                            <p class="text-muted ms-5">Patient identification reduced from 4-6 months to hours</p>
+                        </div>
+
+                        <div class="improvement-item">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="metric-badge">7x</div>
+                                <h5 class="mb-0 ms-3 fw-700">Cost Drivers Addressed</h5>
+                            </div>
+                            <p class="text-muted ms-5">Across regulatory, staffing, data, IRB, and opportunity costs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="value-box">
+                        <h4 class="fw-700 mb-4" style="color: #0A2E73;">Where the Savings Come From</h4>
+
+                        <div class="saving-item mb-4 pb-4 border-bottom">
+                            <h5 class="fw-700 mb-2" style="color: #00A86B;">Additional Recruitment</h5>
+                            <p class="text-muted">More patients per site drives revenue and accelerates completion</p>
+                        </div>
+
+                        <div class="saving-item mb-4 pb-4 border-bottom">
+                            <h5 class="fw-700 mb-2" style="color: #00A86B;">Coordinator Leverage</h5>
+                            <p class="text-muted">1:5 → 1:7 or 8 ratio reduces staffing costs significantly</p>
+                        </div>
+
+                        <div class="saving-item mb-4 pb-4 border-bottom">
+                            <h5 class="fw-700 mb-2" style="color: #00A86B;">Regulatory Staff</h5>
+                            <p class="text-muted">Fewer amendments, renewals, and documentation months</p>
+                        </div>
+
+                        <div class="saving-item mb-4 pb-4 border-bottom">
+                            <h5 class="fw-700 mb-2" style="color: #00A86B;">Data Management</h5>
+                            <p class="text-muted">Faster CRF completion and query resolution</p>
+                        </div>
+
+                        <div class="saving-item">
+                            <h5 class="fw-700 mb-2" style="color: #00A86B;">Lower Opportunity Cost</h5>
+                            <p class="text-muted">Staff redeploy to new trials sooner, maximizing resource utilization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why ClinTrialAI -->
+    <section class="differentiation-section py-100 bg-light">
+        <div class="container-lg">
+            <div class="text-center mb-80">
+                <h2 class="display-5 fw-800 mb-4" style="color: #0A2E73;">Why ClinTrialAI?</h2>
+                <p class="lead text-muted">A compelling competitive advantage in the market</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="advantage-card glass-morphism">
+                        <div class="advantage-icon mb-4">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h4 class="fw-700 mb-3">No Dominant Competitor</h4>
+                        <ul class="list-unstyled text-muted">
+                            <li class="mb-2">✓ No established competitor exists in this space</li>
+                            <li class="mb-2">✓ Opportunity to gain significant market share</li>
+                            <li class="mb-2">✓ First-mover advantage in comprehensive solutions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="advantage-card glass-morphism">
+                        <div class="advantage-icon mb-4">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h4 class="fw-700 mb-3">Truly End-to-End Platform</h4>
+                        <ul class="list-unstyled text-muted">
+                            <li class="mb-2">✓ AI-powered patient identification</li>
+                            <li class="mb-2">✓ Automated trial invitations & screening</li>
+                            <li class="mb-2">✓ AI Retention Index for dropout prediction</li>
+                            <li class="mb-2">✓ Enhanced adherence & data uploads</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="advantage-card glass-morphism">
+                        <div class="advantage-icon mb-4">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h4 class="fw-700 mb-3">Lowest Operational Cost</h4>
+                        <ul class="list-unstyled text-muted">
+                            <li class="mb-2">✓ Significantly lower cost than competitors</li>
+                            <li class="mb-2">✓ Off-shore engineering built-in</li>
+                            <li class="mb-2">✓ Scalable without proportional cost increases</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="ai-retention-banner glass-morphism p-5">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-lightbulb me-4" style="font-size: 2rem; color: #00A86B;"></i>
+                            <div>
+                                <h5 class="fw-700 mb-2" style="color: #0A2E73;">AI Retention Index™</h5>
+                                <p class="mb-0 text-muted">A proprietary ClinTrialAI tool predicting which enrolled patients are most likely to complete the trial, reducing dropout rates and protecting data integrity. Serves as a key market differentiator.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Now -->
+    <section class="opportunity-section py-100">
+        <div class="container-lg">
+            <div class="text-center mb-80">
+                <h2 class="display-5 fw-800 mb-4" style="color: #0A2E73;">Why Now?</h2>
+                <p class="lead text-muted">Three converging forces create the perfect market moment</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="opportunity-card glass-morphism">
+                        <div class="opportunity-number">1</div>
+                        <h4 class="fw-700 mb-3">EHR Ubiquity</h4>
+                        <p class="text-muted mb-3">90%+ hospital adoption creates the data infrastructure needed for advanced AI screening and patient identification at scale</p>
+                        <small class="text-success fw-600">✓ Ready Now</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="opportunity-card glass-morphism">
+                        <div class="opportunity-number">2</div>
+                        <h4 class="fw-700 mb-3">AI Maturity</h4>
+                        <p class="text-muted mb-3">Complex multi-dimensional screening is now computationally feasible, enabling real-time eligibility assessment across complex criteria</p>
+                        <small class="text-success fw-600">✓ Ready Now</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="opportunity-card glass-morphism">
+                        <div class="opportunity-number">3</div>
+                        <h4 class="fw-700 mb-3">Budget Pressure</h4>
+                        <p class="text-muted mb-3">Indirect healthcare cuts demand operational efficiency gains and cost reductions across all clinical trial operations</p>
+                        <small class="text-success fw-600">✓ Urgent Now</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section class="market-section py-100 bg-light">
+        <div class="container-lg">
+            <div class="text-center mb-80">
+                <h2 class="display-5 fw-800 mb-4" style="color: #0A2E73;">Total Addressable Market — USA</h2>
+                <p class="lead text-muted">Focused market penetration strategy</p>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="market-stat glass-morphism text-center">
+                        <div class="stat-number mb-3">~500</div>
+                        <p class="fw-600 mb-2">Large Health Systems</p>
+                        <small class="text-muted">Total in the USA</small>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="market-stat glass-morphism text-center">
+                        <div class="stat-number mb-3">~250</div>
+                        <p class="fw-600 mb-2">Trial-Capable Systems</p>
+                        <small class="text-muted">Active clinical trial capability</small>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="market-stat glass-morphism text-center">
+                        <div class="stat-number mb-3">82%</div>
+                        <p class="fw-600 mb-2">EHR Penetration</p>
+                        <small class="text-muted">Among US health systems</small>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="market-stat glass-morphism text-center">
+                        <div class="stat-number mb-3">60%</div>
+                        <p class="fw-600 mb-2">EHR Market</p>
+                        <small class="text-muted">Epic (40%) + Cerner (20%)</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="market-strategy glass-morphism p-5">
+                        <h5 class="fw-700 mb-3" style="color: #0A2E73;">Strategic Market Approach</h5>
+                        <p class="text-muted mb-3">ClinTrialAI is built to integrate with Epic and Cerner, which hold 60% of the EHR market. The initial target focuses on healthcare systems with clinical research capability, building a scalable B2B SaaS model with recurring revenue tied to trial volume.</p>
+                        <ul class="list-unstyled text-muted">
+                            <li class="mb-2">✓ Immediate foothold in EPIC/CERNER ecosystem</li>
+                            <li class="mb-2">✓ Targeting ~250 trial-capable health systems</li>
+                            <li class="mb-2">✓ Recurring revenue tied to trial volume and activity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Revenue Model -->
+    <section class="revenue-section py-100">
+        <div class="container-lg">
+            <div class="text-center mb-80">
+                <h2 class="display-5 fw-800 mb-4" style="color: #0A2E73;">Revenue Model</h2>
+                <p class="lead text-muted">Subscription-based SaaS with exceptional unit economics</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="revenue-box glass-morphism">
+                        <h4 class="fw-700 mb-4" style="color: #0A2E73;">Financial Metrics</h4>
+                        <div class="metric-group mb-4 pb-4 border-bottom">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="fw-600">Gross Profit Margin</span>
+                                <span style="color: #00A86B; font-size: 1.5rem; font-weight: 700;">~80%</span>
+                            </div>
+                        </div>
+                        <div class="metric-group mb-4 pb-4 border-bottom">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="fw-600">Per Trial Cost (3 trials)</span>
+                                <span style="color: #00A86B; font-size: 1.5rem; font-weight: 700;">$40K</span>
+                            </div>
+                        </div>
+                        <div class="metric-group mb-4 pb-4 border-bottom">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="fw-600">Per Trial Cost (10 trials)</span>
+                                <span style="color: #00A86B; font-size: 1.5rem; font-weight: 700;">$20K</span>
+                            </div>
+                        </div>
+                        <div class="metric-group">
+                            <p class="text-muted mb-0">Engineer costs scale linearly with trial volume, enabling 50% reduction in per-trial cost as volume doubles</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="revenue-box glass-morphism">
+                        <h4 class="fw-700 mb-4" style="color: #0A2E73;">Revenue Scaling</h4>
+                        <table class="w-100">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #e0e0e0;">
+                                    <th class="py-2 fw-600" style="color: #0A2E73;">Trials</th>
+                                    <th class="py-2 fw-600 text-center" style="color: #0A2E73;">3</th>
+                                    <th class="py-2 fw-600 text-center" style="color: #0A2E73;">5</th>
+                                    <th class="py-2 fw-600 text-center" style="color: #0A2E73;">10</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #f0f0f0;">
+                                    <td class="py-3">Revenue</td>
+                                    <td class="py-3 text-center fw-600">$120K</td>
+                                    <td class="py-3 text-center fw-600">$150K</td>
+                                    <td class="py-3 text-center fw-600">$200K</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #f0f0f0;">
+                                    <td class="py-3">Engineer Cost</td>
+                                    <td class="py-3 text-center">$20K</td>
+                                    <td class="py-3 text-center">$30K</td>
+                                    <td class="py-3 text-center">$40K</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 fw-600">Gross Profit</td>
+                                    <td class="py-3 text-center fw-600" style="color: #00A86B;">$100K</td>
+                                    <td class="py-3 text-center fw-600" style="color: #00A86B;">$120K</td>
+                                    <td class="py-3 text-center fw-600" style="color: #00A86B;">$160K</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <!-- <section class="cta-section py-100 position-relative overflow-hidden">
+        <div class="animated-bg-cta"></div>
+        <div class="container-lg position-relative z-3 text-center">
+            <h2 class="display-4 fw-800 mb-4 text-white">Ready to Transform Clinical Trials?</h2>
+            <p class="lead text-white mb-5" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+                Join leading healthcare organizations leveraging AI to accelerate clinical trial success.
+            </p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="pages/platform.html" class="btn btn-light btn-lg fw-600 px-5">Explore Platform</a>
+                <a href="pages/contact.html" class="btn btn-outline-light btn-lg fw-600 px-5">Schedule Demo</a>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="footer-section bg-dark text-white py-5 justify-content-center">
+        <div class="container-lg justify-content-center">
+            
+            
+                <div class="row align-items-center justify-content-center">
+                    <p style="width: 350px;">&copy; 2026 ClinTrialAI. All rights reserved.</p>
+                    
+                   
+                </div>
+            
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+/* ===========================
+   IMAGE STYLING & OPTIMIZATION
+   =========================== */
+
+/* Hero Background Images */
+.hero-section {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(10, 46, 115, 0.7), rgba(0, 168, 107, 0.3));
+    z-index: 1;
+}
+
+.hero-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Lazy Loading Images */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+img[loading="lazy"] {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Picture Element Support */
+picture {
+    display: block;
+}
+
+/* Feature Card Images */
+.feature-image,
+.solution-image,
+.capability-icon {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.feature-image:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Icon Images */
+.icon-wrapper img,
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* Logo Styling */
+.navbar-brand img {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+footer img {
+    height: 40px;
+    width: auto;
+}
+
+/* Leader Profile Images */
+.leader-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #00A86B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0A2E73, #00A86B);
+    font-size: 4rem;
+    color: white;
+}
+
+/* Responsive Images */
+@media (max-width: 768px) {
+    .hero-section {
+        background-attachment: scroll;
+    }
+
+    .feature-image,
+    .solution-image {
+        max-height: 300px;
+    }
+
+    .leader-image {
+        width: 120px;
+        height: 120px;
+        font-size: 3rem;
+    }
+}
+
+/* Image Containers */
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.image-container::after {
+    content: '';
+    display: block;
+    padding-bottom: 66.66%;
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* SVG Icon Styling */
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.icon-svg {
+    width: 64px;
+    height: 64px;
+    color: #00A86B;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-svg:hover {
+    transform: scale(1.1);
+    color: #0A2E73;
+}
+
+/* Gradient Placeholder for Missing Images */
+.image-placeholder {
+    background: linear-gradient(135deg, #0A2E73, #00A86B);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    border-radius: 12px;
+}
+
+/* Image Gallery */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 1;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Comparison Images */
+.before-after-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.before-after-slider img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Product Screenshots */
+.screenshot {
+    border-radius: 12px;
+    border: 2px solid #E0E0E0;
+    box-shadow: 0 10px 40px rgba(10, 46, 115, 0.15);
+    transition: box-shadow 0.3s ease;
+}
+
+.screenshot:hover {
+    box-shadow: 0 20px 60px rgba(10, 46, 115, 0.25);
+}
+
+/* Team Photo Grid */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Image Text Overlay */
+.image-overlay {
+    position: relative;
+}
+
+.image-overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(10, 46, 115, 0.9), transparent);
+    color: white;
+    padding: 30px 20px 20px;
+    border-radius: 0 0 12px 12px;
+}
+
+/* Image Caption */
+.image-caption {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
+
+/* Responsive Image Sizes */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.img-thumbnail {
+    padding: 4px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+}
+
+/* Rounded Images */
+.rounded-lg {
+    border-radius: 20px;
+}
+
+.rounded-full {
+    border-radius: 50%;
+}
+
+/* Image Effects */
+.img-grayscale {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.img-grayscale:hover {
+    filter: grayscale(0%);
+}
+
+.img-brightness {
+    filter: brightness(0.9);
+}
+
+.img-brightness:hover {
+    filter: brightness(1);
+}
+
+/* WebP Format Support */
+@supports (background-image: url('image.webp')) {
+    /* Use WebP images */
+    .hero-section {
+        background-image: url('../images/heroes/hero-home.webp');
+    }
+}
+
+/* Print Styles */
+@media print {
+    img {
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
+}
